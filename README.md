@@ -4,6 +4,8 @@ Brush, Pencil, Eraser, AA toggle, size slider, and image saving!
 This is Module 2 of **NovaBrush**, a lightweight, responsive pixel editor built with **C#**.
 NovaBrush manages to load images at **under 100MB on 4K images**.
 
+<img src="https://github.com/eduardodias2002/eduardodias2002.github.io/blob/main/img/testpix.webp">
+
 ## What It Does
 
 **Smart Brush Engine**  
