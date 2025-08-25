@@ -10,7 +10,7 @@ using System.Windows.Media.Imaging;
 
 namespace NovaBrush._02_BrushSys.Tools{
     public class bsh_pencil : ITool {
-        public int Size { get; set; } = 1;
+        public int Size { get; set; } = 1; // Only here to not trigger an error
         public bool AA { get; set; } = true;
 
         // When I hold down the mouse, it draws a line that follows the cursor
@@ -46,7 +46,7 @@ namespace NovaBrush._02_BrushSys.Tools{
         // Used so it's not invalid
         public void SetPixel(WriteableBitmap bitmap, int x, int y, Color color)
         {
-            DrawWithSize(bitmap, x, y, Size, color);
+            DrawWithSize(bitmap, x, y, 1, color); // Pencils should be 1px only
         }
 
         private void DrawWithSize(WriteableBitmap bitmap, int centerX, int centerY, int size, Color color)
