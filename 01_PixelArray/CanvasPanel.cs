@@ -24,8 +24,8 @@ namespace _NovaBrush {
         private double _currentZoom = 1.0;
         public float PixelVal { get; set; } = 1.0f;
 
-        public int CanvasHeight = 32;
-        public int CanvasWidth = 32;
+        public int CanvasHeight = 720;
+        public int CanvasWidth = 1280;
 
         // Load file
         public void LoadBitmap(WriteableBitmap bitmap) {
@@ -195,9 +195,9 @@ namespace _NovaBrush {
             {
                 uint* pBackBuffer = (uint*)BitmapToDraw.BackBuffer;
 
-                for (int y = 0; y < 32; y++) // 32px tall
+                for (int y = 0; y < CanvasHeight; y++) // 32px tall
                 {
-                    for (int x = 0; x < 32; x++) //32px wide, so a 32x32 canvas for now
+                    for (int x = 0; x < CanvasWidth; x++) //32px wide, so a 32x32 canvas for now
                     {
                         // Calculate index: row * width + column
                         int index = y * CanvasWidth + x;

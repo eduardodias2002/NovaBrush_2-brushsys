@@ -39,12 +39,7 @@ namespace _NovaBrush
         // Places the Canvas
         public void CreateCanvas()
         {
-            canvasPanel = new CanvasPanel
-            {
-                Width = 32,
-                Height = 32,
-
-            };
+            canvasPanel = new CanvasPanel{};
 
             // Add it to the named parent container from XAML
             MainCanvas.Children.Add(canvasPanel);
