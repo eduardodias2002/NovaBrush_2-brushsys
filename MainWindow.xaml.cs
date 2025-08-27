@@ -39,7 +39,7 @@ namespace _NovaBrush
         // Places the Canvas
         public void CreateCanvas()
         {
-            canvasPanel = new CanvasPanel{};
+            canvasPanel = new CanvasPanel { };
 
             // Add it to the named parent container from XAML
             MainCanvas.Children.Add(canvasPanel);
@@ -98,18 +98,22 @@ namespace _NovaBrush
         // If you shift the slider
         private void sdr_brushsize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (Globals.CurrentTool == null) return;
             double newValue = e.NewValue;
-            Globals.CurrentTool.Size = (int)newValue;
-            Globals.BrushSizeLabel.Text = "Size: " + Convert.ToString((int)newValue) + "px";
+            int size = (int)newValue;
+
+            Globals.Size = size;
+            if (Globals.BrushSizeLabel != null)
+            {
+                Globals.BrushSizeLabel.Text = $"Size: {size}px";
+            }
+            
         }
 
         // The Anti Aliasing button
         private void btn_AA_Click(object sender, RoutedEventArgs e)
         {
-            if (Globals.CurrentTool == null) return;
-            Globals.CurrentTool.AA = !Globals.CurrentTool.AA;
-            Globals.AntiAliasingLabel.Text = "AA: " + (Globals.CurrentTool.AA ? "ON" : "OFF");
+            Globals.AA = !Globals.AA;
+            Globals.AntiAliasingLabel.Text = "AA: " + (Globals.AA ? "ON" : "OFF");
         }
 
         // File saving prompt
@@ -135,7 +139,7 @@ namespace _NovaBrush
 
                 BitmapEncoder encoder = GetEncoder(filepath);
 
-                //bitmap.Freeze(); //tihs freezes the program, hmm
+                //bitmap.Freeze(); //this freezes the program, hmm
 
                 encoder.Frames.Add(BitmapFrame.Create(bitmap));
 
@@ -161,6 +165,32 @@ namespace _NovaBrush
                 ".png" => new PngBitmapEncoder(),
                 _ => new PngBitmapEncoder() // more file types soon
             };
+        }
+
+        private void showOnLoad(object sender, RoutedEventArgs e)
+        {
+            if (sender is TextBlock textBlock && textBlock.Tag is string propertyName && !string.IsNullOrEmpty(propertyName))
+            {
+                // Get format 
+                string format = textBlock.Text ?? "{0}";
+
+                var field = typeof(Globals).GetField(propertyName);
+                object value = null;
+
+                if (field != null){
+                    value = field.GetValue(null);
+                }
+                else{
+                    var property = typeof(Globals).GetProperty(propertyName);
+                    if (property != null){
+                        value = property.GetValue(null);
+                    }
+                    else{
+                        value = "Error";
+                    }
+                }
+                textBlock.Text = string.Format(format, value);
+            }
         }
     }
 }

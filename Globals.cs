@@ -16,6 +16,9 @@ namespace _NovaBrush{
         public static TextBlock AntiAliasingLabel { get; set; }
         public static Canvas CanvasPanelLabel { get; set; }
         public static WriteableBitmap BitmapToDraw { get; set; }
+        public static ITool itool { get; set; }
+        public static int Size = 1;
+        public static bool AA = true;
         public static ITool CurrentTool { get; set; }
 
         public static Color curColor { get; set; }

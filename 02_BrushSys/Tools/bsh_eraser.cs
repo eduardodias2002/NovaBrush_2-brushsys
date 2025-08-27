@@ -10,10 +10,8 @@ using System.Windows.Media.Imaging;
 
 namespace NovaBrush._02_BrushSys.Tools{
     public class bsh_eraser : ITool {
-        public int Size { get; set; } = 5;
 
         private const byte Pressure = 10;
-        public bool AA { get; set; } = true;
 
         // When I hold down the mouse, it draws a line that follows the cursor
         public void DrawLine(WriteableBitmap bitmap, int x1, int y1, int x2, int y2, Color color)
@@ -48,7 +46,7 @@ namespace NovaBrush._02_BrushSys.Tools{
 
         public void SetPixel(WriteableBitmap bitmap, int x, int y, Color color)
         {
-            DrawWithSize(bitmap, x, y, Size, color);
+            DrawWithSize(bitmap, x, y, Globals.Size, color);
         }
 
         private void DrawWithSize(WriteableBitmap bitmap, int centerX, int centerY, int size, Color color)
@@ -63,7 +61,7 @@ namespace NovaBrush._02_BrushSys.Tools{
                     {
                         int px = centerX + dx;
                         int py = centerY + dy;
-                        if (AA == true){
+                        if (Globals.AA == true){
                             SetPixelAA(bitmap, px, py, color);
                         }
                         else {

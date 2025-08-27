@@ -48,9 +48,9 @@
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
                     <Button x:Name="btn_open" Content="Open" Width="48" Height="26" Background="#FF202020" Foreground="White" BorderBrush="Transparent" Focusable="False" HorizontalAlignment="Left" Click="btn_open_Click"/>
                     <Button x:Name="btn_save" Content="Save" Width="48" Height="26" Background="#FF202020" Foreground="White" BorderBrush="Transparent" Focusable="False" HorizontalAlignment="Left" Click="btn_save_Click" />
-                    <TextBlock x:Name="lbl_brushsize" Text="Size: " Width="73" Height="16" Background="#FF202020" Foreground="White" Focusable="False" Margin="8,0,0,0"/>
+                    <TextBlock x:Name="lbl_brushsize" Tag="Size" Text="Size: {0}px" Width="73" Height="16" Background="#FF202020" Foreground="White" Focusable="False" Margin="8,0,0,0" Loaded="showOnLoad"/>
                     <Slider x:Name="sdr_brushsize" Height="18" Background="#FF202020" Foreground="White" Focusable="False" Width="128" ValueChanged="sdr_brushsize_ValueChanged" Margin="8,0,0,0" Maximum="50" SmallChange="4" TickFrequency="4" LargeChange="2" Minimum="1" AutoToolTipPlacement="TopLeft" TickPlacement="BottomRight"/>
-                    <TextBlock x:Name="lbl_aa" Text="AA: " Width="55" Height="16" Background="#FF202020" Foreground="White" Focusable="False" Margin="8,0,0,0"/>
+                    <TextBlock x:Name="lbl_aa" Width="55" Height="16" Background="#FF202020" Foreground="White" Focusable="False" Loaded="showOnLoad" Margin="8,0,0,0"/>
                     <Button x:Name="btn_AA" Content="⬛" Width="24" Height="24" DockPanel.Dock="Right" Margin="0,0,16,0" Style="{StaticResource NovaToolButton}" Focusable="False" Click="btn_AA_Click"/>
                 </StackPanel>
             </DockPanel>
@@ -61,7 +61,7 @@
                 x:Name="MainCanvas" 
                 Background="#FF444444"
                 RenderTransformOrigin="0,0" Margin="0,0,0,30">
-            <_02_BrushSys:ToolWindow x:Name="wnd_Tool" Canvas.Left="1200" Canvas.Top="46" HorizontalAlignment="Center" Height="288" VerticalAlignment="Top" Panel.ZIndex="1"/>
+                <_02_BrushSys:ToolWindow x:Name="wnd_Tool" Canvas.Left="1200" Canvas.Top="46" HorizontalAlignment="Center" Height="288" VerticalAlignment="Top" Panel.ZIndex="1"/>
         </Canvas>
 
         <Border x:Name="toolbar_bottom" Grid.Row="2" 

@@ -10,7 +10,6 @@ using System.Windows.Media.Imaging;
 
 namespace NovaBrush._02_BrushSys.Tools{
     public class bsh_brush : ITool {
-        public int Size { get; set; } = 5;
 
         private const byte Pressure = 10;
         public bool AA { get; set; } = true;
@@ -48,7 +47,7 @@ namespace NovaBrush._02_BrushSys.Tools{
 
         public void SetPixel(WriteableBitmap bitmap, int x, int y, Color color)
         {
-            DrawWithSize(bitmap, x, y, Size, color);
+            DrawWithSize(bitmap, x, y, Globals.Size, color);
         }
 
         private void DrawWithSize(WriteableBitmap bitmap, int centerX, int centerY, int size, Color color)
@@ -63,7 +62,7 @@ namespace NovaBrush._02_BrushSys.Tools{
                     {
                         int px = centerX + dx;
                         int py = centerY + dy;
-                        if (AA == true)
+                        if (Globals.AA == true)
                             SetPixelAA(bitmap, px, py, color);
                         else
                             SetPixelNoAA(bitmap, px, py, color);
