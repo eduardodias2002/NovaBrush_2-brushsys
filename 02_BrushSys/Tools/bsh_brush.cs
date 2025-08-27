@@ -12,7 +12,6 @@ namespace NovaBrush._02_BrushSys.Tools{
     public class bsh_brush : ITool {
 
         private const byte Pressure = 10;
-        public bool AA { get; set; } = true;
 
         // When I hold down the mouse, it draws a line that follows the cursor
         public void DrawLine(WriteableBitmap bitmap, int x1, int y1, int x2, int y2, Color color)
