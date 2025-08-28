@@ -54,4 +54,4 @@ This is **Module 2** of NovaBrush:
 1. [Module 1](https://github.com/eduardodias2002/NovaBrush_1-pixel-array/) - Canvas, Load, Pan, Pixels  
 2. [Module 2](https://github.com/eduardodias2002/NovaBrush_2-brushsys) - Brush, Eraser, AA, Save, Tools  
 
-Devlog soon! [NovaBrush on my site](eduardodias2002.github.io)
+Devlog soon! [NovaBrush on my site](https://eduardodias2002.github.io)
